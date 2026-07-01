@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baby Shower — Tejaswini Murthy</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Baby Shower — Tejaswini & Murthy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -57,11 +60,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 140px 18px 60px; /* Increased top padding to prevent garland collision */
+        padding: 90px 12px 30px; /* Tighter padding to give layout more breathing room */
         position: relative;
         max-width: 1200px;
         margin: 0 auto;
-        gap: 40px;
+        gap: 20px;
       }
 
       /* ---------- Ambient marigold garland strung across the top ---------- */
@@ -70,7 +73,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 120px;
+        height: 80px;
         pointer-events: none;
         z-index: 1;
       }
@@ -80,14 +83,14 @@
         display: block;
       }
 
-      /* ---------- Main Interactive Container ---------- */
+      /* ---------- Main Layout Container ---------- */
       .main-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-        gap: 24px;
+        gap: 20px;
         z-index: 2;
       }
 
@@ -96,7 +99,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        min-height: 420px; /* Prevents layout shifting when envelope opens */
+        min-height: 400px;
       }
 
       /* ---------- Intro copy above envelope ---------- */
@@ -110,6 +113,7 @@
           opacity 0.5s ease,
           transform 0.5s ease;
         width: 100%;
+        padding: 0 8px;
       }
       .intro.hide {
         opacity: 0;
@@ -120,20 +124,24 @@
 
       .eyebrow {
         font-family: "Karla", sans-serif;
-        font-size: 12.5px;
-        letter-spacing: 0.32em;
+        font-size: 13px;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
         color: var(--rust);
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         font-weight: 600;
       }
       .headline {
         font-family: "Fraunces", serif;
         font-weight: 500;
-        font-size: clamp(32px, 7vw, 48px);
+        font-size: clamp(
+          30px,
+          9vw,
+          48px
+        ); /* Larger starting size for mobile headers */
         color: var(--maroon);
-        margin: 0 0 12px;
-        line-height: 1.15;
+        margin: 0 0 8px;
+        line-height: 1.2;
       }
       .headline em {
         font-style: italic;
@@ -142,7 +150,7 @@
       .sub {
         font-size: 15px;
         color: var(--ink-soft);
-        margin: 0 0 16px;
+        margin: 0 0 12px;
         letter-spacing: 0.02em;
         line-height: 1.4;
       }
@@ -150,8 +158,8 @@
       /* ---------- Envelope ---------- */
       .envelope-wrap {
         position: relative;
-        width: 100%;
-        max-width: 380px;
+        width: 94%; /* Fills more mobile screen width */
+        max-width: 400px;
         aspect-ratio: 3 / 2.05;
         cursor: pointer;
         perspective: 1600px;
@@ -168,15 +176,14 @@
       .envelope-body {
         position: absolute;
         inset: 0;
-        border-radius: 6px;
+        border-radius: 8px;
         background: linear-gradient(160deg, var(--paper), var(--cream-deep));
         box-shadow:
-          0 2px 4px rgba(110, 31, 42, 0.08),
+          0 4px 10px rgba(110, 31, 42, 0.08),
           0 24px 46px -18px rgba(110, 31, 42, 0.35),
           inset 0 0 0 1px rgba(200, 155, 60, 0.35);
         overflow: hidden;
       }
-      /* subtle inner pockets */
       .envelope-body::before {
         content: "";
         position: absolute;
@@ -212,7 +219,6 @@
         clip-path: polygon(0 0, 100% 50%, 0 100%);
       }
 
-      /* the letter that slides up out of the envelope */
       .letter-peek {
         position: absolute;
         left: 6%;
@@ -233,8 +239,8 @@
         padding-top: 14%;
       }
       .letter-peek .peek-mark {
-        width: 34px;
-        height: 34px;
+        width: 38px;
+        height: 38px;
         opacity: 0.55;
       }
 
@@ -242,7 +248,6 @@
         transform: translateY(-64%);
       }
 
-      /* front flap (top triangle) that opens */
       .flap {
         position: absolute;
         top: 0;
@@ -263,7 +268,6 @@
         filter: brightness(0.94);
       }
 
-      /* wax-style marigold seal */
       .seal {
         position: absolute;
         top: 41%;
@@ -292,7 +296,7 @@
         z-index: 2;
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
-        font-size: 17px;
+        font-size: 18px;
         color: var(--maroon);
         letter-spacing: 0.02em;
       }
@@ -300,8 +304,8 @@
       /* ---------- Invitation card (revealed) ---------- */
       .card-wrap {
         position: relative;
-        width: 100%;
-        max-width: 420px;
+        width: 96%; /* Maximize display room on mobile viewports */
+        max-width: 410px;
         opacity: 0;
         transform: translateY(28px) scale(0.98);
         transition:
@@ -318,10 +322,10 @@
       .card {
         position: relative;
         background: var(--paper);
-        border-radius: 14px;
-        padding: 35px 24px 30px;
+        border-radius: 16px;
+        padding: 32px 20px 28px;
         box-shadow:
-          0 30px 60px -24px rgba(110, 31, 42, 0.4),
+          0 25px 50px -20px rgba(110, 31, 42, 0.35),
           0 2px 0 rgba(200, 155, 60, 0.5) inset;
         overflow: hidden;
         text-align: center;
@@ -349,20 +353,20 @@
       }
 
       .card-eyebrow {
-        font-size: 11.5px;
+        font-size: 12px;
         letter-spacing: 0.34em;
         text-transform: uppercase;
         color: var(--rust);
         font-weight: 600;
-        margin-top: 12px;
+        margin-top: 8px;
       }
 
       .portrait {
-        width: 118px;
-        height: 118px;
+        width: 114px;
+        height: 114px;
         border-radius: 50%;
-        margin: 16px auto 6px;
-        padding: 5px;
+        margin: 16px auto 8px;
+        padding: 4px;
         background: conic-gradient(
           from 180deg,
           var(--marigold),
@@ -387,15 +391,16 @@
         font-family: "Fraunces", serif;
         font-weight: 500;
         font-style: italic;
-        font-size: clamp(26px, 6.2vw, 32px);
+        font-size: clamp(28px, 7.5vw, 34px); /* Boosted layout font sizes */
         color: var(--maroon);
         margin: 8px 0 2px;
-        line-height: 1.15;
+        line-height: 1.2;
       }
       .name-tag {
-        font-size: 12.5px;
+        font-size: 13.5px;
+        font-weight: 500;
         color: var(--ink-soft);
-        margin-bottom: 18px;
+        margin-bottom: 14px;
         letter-spacing: 0.03em;
       }
 
@@ -404,7 +409,7 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        margin: 6px 0 18px;
+        margin: 4px 0 16px;
         color: var(--marigold);
       }
       .divider svg {
@@ -413,7 +418,7 @@
       }
       .divider .line {
         height: 1px;
-        width: 44px;
+        width: 40px;
         background: linear-gradient(
           90deg,
           transparent,
@@ -423,10 +428,10 @@
       }
 
       .details-msg {
-        font-size: 14px;
+        font-size: 14.5px;
         color: var(--ink);
         line-height: 1.65;
-        margin: 0 0 22px;
+        margin: 0 0 20px;
         padding: 0 4px;
       }
 
@@ -435,20 +440,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 78px;
-        height: 78px;
+        width: 76px;
+        height: 76px;
         border-radius: 12px;
         background: linear-gradient(160deg, var(--rust), var(--maroon));
         color: var(--cream);
-        margin: 0 auto 20px;
-        box-shadow: 0 12px 20px -10px rgba(110, 31, 42, 0.55);
+        margin: 0 auto 18px;
+        box-shadow: 0 10px 18px -8px rgba(110, 31, 42, 0.5);
       }
       .date-badge .dow {
-        font-size: 10.5px;
+        font-size: 11px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         opacity: 0.85;
-        margin-top: 6px;
+        margin-top: 4px;
       }
       .date-badge .dnum {
         font-family: "Fraunces", serif;
@@ -458,44 +463,45 @@
         margin-top: 2px;
       }
       .date-badge .mon {
-        font-size: 10px;
+        font-size: 10.5px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         opacity: 0.85;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
       }
 
       .timeline {
         display: flex;
         justify-content: center;
-        gap: 26px;
-        margin: 0 0 24px;
+        gap: 16px;
+        margin: 0 0 22px;
+        width: 100%;
       }
       .t-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-width: 98px;
+        flex: 1;
       }
       .t-item .t-icon {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         background: var(--cream-deep);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         color: var(--rust);
         box-shadow: inset 0 0 0 1px rgba(200, 155, 60, 0.4);
       }
       .t-item .t-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
       }
       .t-item .t-label {
-        font-size: 10.5px;
-        letter-spacing: 0.14em;
+        font-size: 11px;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--ink-soft);
         margin-bottom: 3px;
@@ -503,7 +509,7 @@
       .t-item .t-time {
         font-family: "Fraunces", serif;
         font-weight: 600;
-        font-size: 17px;
+        font-size: 16.5px;
         color: var(--maroon);
       }
       .t-sep {
@@ -515,29 +521,28 @@
           var(--gold),
           transparent
         );
-        margin-top: 6px;
+        margin-top: 4px;
       }
 
       .cta {
         display: inline-flex;
         align-items: center;
-        gap: 9px;
-        padding: 13px 26px;
+        gap: 8px;
+        padding: 13px 24px;
         border-radius: 30px;
         background: linear-gradient(120deg, var(--marigold), var(--rust));
         color: var(--paper);
         text-decoration: none;
-        font-size: 13.5px;
+        font-size: 14px;
         font-weight: 600;
         letter-spacing: 0.04em;
-        box-shadow: 0 14px 24px -12px rgba(168, 70, 28, 0.55);
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
+        box-shadow: 0 12px 20px -10px rgba(168, 70, 28, 0.55);
+        transition: transform 0.25s ease;
+        width: 100%; /* Makes the button nice and tap-friendly on touch devices */
+        justify-content: center;
       }
       .cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 18px 28px -12px rgba(168, 70, 28, 0.6);
+        transform: translateY(-1px);
       }
       .cta svg {
         width: 15px;
@@ -545,76 +550,91 @@
       }
 
       .card-footer {
-        margin-top: 22px;
+        margin-top: 20px;
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
-        font-size: 14.5px;
+        font-size: 15px;
         color: var(--ink-soft);
       }
 
       .rsvp-foot {
         text-align: center;
         margin-top: 16px;
-        font-size: 11.5px;
+        font-size: 12px;
         color: var(--ink-soft);
         letter-spacing: 0.05em;
+        font-weight: 500;
       }
 
       footer.credit {
         position: relative;
         z-index: 2;
         text-align: center;
-        margin-top: 34px;
-        font-size: 10.5px;
+        margin-top: 24px;
+        font-size: 11px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--ink-soft);
-        opacity: 0.55;
+        opacity: 0.6;
         width: 100%;
       }
 
-      /* ---------- Media Queries for Tablets & Laptops ---------- */
+      /* ---------- Media Queries for Laptops & Tablets ---------- */
       @media (min-width: 768px) {
         .stage {
-          padding: 160px 40px 60px;
+          padding: 140px 40px 60px;
+          gap: 40px;
         }
 
         .main-container {
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
-          gap: 50px;
+          gap: 40px;
         }
 
         .intro {
           text-align: left;
           align-items: flex-start;
           flex: 1;
-          max-width: 480px;
+          max-width: 460px;
         }
 
         .interactive-zone {
           flex: 1;
-          max-width: 450px;
+          max-width: 420px;
           justify-content: flex-end;
         }
 
         .intro.hide {
-          display: flex; /* Keep layout structurally intact but visually clean */
+          display: flex;
           opacity: 0;
           transform: translateX(-20px);
         }
+
+        .envelope-wrap {
+          width: 100%;
+        }
+
+        .card-wrap {
+          width: 100%;
+        }
+
+        .cta {
+          width: auto;
+        }
       }
 
-      @media (max-width: 380px) {
-        .timeline {
-          gap: 14px;
+      /* Fallback optimization for absolute tight widths (under 350px width) */
+      @media (max-width: 340px) {
+        .name {
+          font-size: 25px;
         }
-        .t-item {
-          min-width: 75px;
+        .t-item .t-time {
+          font-size: 14px;
         }
         .card {
-          padding: 30px 16px 24px;
+          padding: 24px 14px 20px;
         }
       }
     </style>
@@ -694,10 +714,7 @@
               <div class="card-eyebrow">Baby Shower</div>
 
               <div class="portrait">
-                <img
-                  src="./Images/parents.jpeg.jpeg"
-                  alt="Tejaswini & Murthy"
-                />
+                <img src="./Images/parents.jpeg" alt="Tejaswini & Murthy" />
               </div>
 
               <div class="name">Tejaswini & Murthy</div>
@@ -759,7 +776,11 @@
                 </div>
               </div>
 
-              <a href="https://share.google/CKJypjAoAh51l2xrl" class="cta">
+              <a
+                href="https://share.google/CKJypjAoAh51l2xrl"
+                target="_blank"
+                class="cta"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -785,7 +806,6 @@
     </div>
 
     <script>
-      // Simple functional click events to animate elements cleanly
       const envelope = document.getElementById("envelope");
       const cardWrap = document.getElementById("cardWrap");
       const intro = document.getElementById("intro");
@@ -794,7 +814,6 @@
         if (!envelope.classList.contains("opened")) {
           envelope.classList.add("opened");
 
-          // Delay presentation transitions to complement the envelope slide speed
           setTimeout(() => {
             envelope.style.display = "none";
             intro.classList.add("hide");
